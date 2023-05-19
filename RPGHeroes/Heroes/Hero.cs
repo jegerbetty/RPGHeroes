@@ -83,8 +83,31 @@ namespace RPG_Heroes.Heroes
             return heroDamage;
         }
 
-        public abstract HeroAttribute TotalAttributes();
-        public void DisplayHero()
+        public HeroAttribute TotalAttributes()
+        {
+            int totalStrength = LevelAttributes.Strength;
+            int totalDexterity = LevelAttributes.Dexterity;
+            int totalIntelligence = LevelAttributes.Intelligence;
+            int totalLevelUpStrength = LevelAttributes.LevelUpStrength;
+            int totalLevelUpDexterity = LevelAttributes.LevelUpDexterity;
+            int totalLevelUpIntelligence = LevelAttributes.LevelUpIntelligence;
+                       
+
+            foreach (var item in EquippedArmor.Values)
+            {
+                totalStrength += LevelAttributes.Strength;
+                totalDexterity += LevelAttributes.Dexterity;
+                totalIntelligence += LevelAttributes.Intelligence;
+                totalLevelUpStrength += LevelAttributes.LevelUpStrength;
+                totalLevelUpDexterity += LevelAttributes.LevelUpDexterity;
+                totalLevelUpIntelligence += LevelAttributes.LevelUpIntelligence;
+            }
+            HeroAttribute totalAttributes = new(totalStrength, totalDexterity, totalIntelligence, totalLevelUpStrength, totalLevelUpDexterity, totalLevelUpIntelligence);
+            
+            return totalAttributes;
+        }
+        
+            public void DisplayHero()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat($"Character name: {Name}\n");
