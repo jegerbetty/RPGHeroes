@@ -19,8 +19,10 @@ namespace RPG_Heroes.Heroes
         public string Name { get; set; }
         public int Level { get; set; }
         public string ClassName { get; set; }
+
         public HeroAttribute LevelAttributes { get; set; }
         public HeroAttribute HeroAttribute { get; set; }
+        public HeroAttribute DamagingAttribute { get; set; }
 
         public Weapon EquippedWeapon { get; set; }
         public Dictionary<Slot, Items.Items> EquippedArmor { get; set; }
@@ -68,20 +70,8 @@ namespace RPG_Heroes.Heroes
                 EquippedWeapon = weaponToEquip;
             }
         }
-        public double Damage()
-        {
-            double heroDamage = 0;
-
-            if (EquippedWeapon == null)
-            {
-                heroDamage = 1 * (1 + (double)HeroAttribute.DamagingAttribute / 100);
-            }
-            else
-            {
-                heroDamage = EquippedWeapon.WeaponDamage * (1 + (double)HeroAttribute.DamagingAttribute / 100);
-            }
-            return heroDamage;
-        }
+        public abstract int Damage();
+        
 
         public HeroAttribute TotalAttributes()
         {

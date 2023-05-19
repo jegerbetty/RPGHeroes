@@ -32,7 +32,7 @@ namespace RPG_Heroes.Heroes
         public int LevelUpDexterity { get; set; }
         public int LevelUpIntelligence { get; set; }
  
-        public int DamagingAttribute { get; set; }
+        
 
         public HeroAttribute(int strength, int dexterity, int intelligence, int levelUpStrength, int levelUpDexterity, int levelUpIntelligence)
         {
