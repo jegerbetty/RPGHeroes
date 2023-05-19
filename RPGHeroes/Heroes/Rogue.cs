@@ -27,10 +27,6 @@ namespace RPG_Heroes.Heroes
         {
         }
         HeroAttribute heroAttribute = new HeroAttribute(2, 6, 1, 1, 4, 1);
-        public override HeroAttribute TotalAttributes()
-        {
-            throw new NotImplementedException();
-        }
         
     }
 }
