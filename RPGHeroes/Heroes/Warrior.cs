@@ -22,11 +22,11 @@ namespace RPG_Heroes.Heroes
 
             if (EquippedWeapon == null)
             {
-                heroDamage = 1 * (1 + (int)DamagingAttribute.Strength / 100);
+                heroDamage = 1 * (1 + (int)TotalAttributes().Strength / 100);
             }
             else
             {
-                heroDamage = EquippedWeapon.WeaponDamage * (1 + (int)HeroAttribute.Strength / 100);
+                heroDamage = EquippedWeapon.WeaponDamage * (1 + (int)TotalAttributes().Strength / 100);
             }
             return heroDamage;
         }

@@ -23,7 +23,7 @@ namespace RPG_Heroes.Heroes
             ValidWeaponTypes = new Enums.WeaponType[] { Enums.WeaponType.Staff, Enums.WeaponType.Wand };
             ValidArmorTypes = new Enums.ArmorType[] { Enums.ArmorType.Cloth };
             HeroAttribute heroAttribute = new HeroAttribute(1, 1, 8, 1, 1, 5);
-            DamagingAttribute = HeroAttribute.Intelligence; //Warrior: Strength, Ranger: Dexterity, Rogue: Dexterity
+            
         }
         public override int Damage()
         {
@@ -31,11 +31,11 @@ namespace RPG_Heroes.Heroes
 
             if (EquippedWeapon == null)
             {
-                heroDamage = 1 * (1 + (int)DamagingAttribute.Intelligence / 100);
+                heroDamage = 1 * (1 + (int)TotalAttributes().Intelligence / 100);
             }
             else
             {
-                heroDamage = EquippedWeapon.WeaponDamage * (1 + (int)HeroAttribute.Intelligence / 100);
+                heroDamage = EquippedWeapon.WeaponDamage * (1 + (int)TotalAttributes().Intelligence / 100);
             }
             return heroDamage;
         }

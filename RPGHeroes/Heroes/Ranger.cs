@@ -21,11 +21,11 @@ namespace RPG_Heroes.Heroes
 
             if (EquippedWeapon == null)
             {
-                heroDamage = 1 * (1 + (int)DamagingAttribute.Dexterity / 100);
+                heroDamage = 1 * (1 + (int)TotalAttributes().Dexterity / 100);
             }
             else
             {
-                heroDamage = EquippedWeapon.WeaponDamage * (1 + (int)HeroAttribute.Dexterity / 100);
+                heroDamage = EquippedWeapon.WeaponDamage * (1 + (int)TotalAttributes().Dexterity / 100);
             }
             return heroDamage;
         }
