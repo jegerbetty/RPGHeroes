@@ -22,9 +22,34 @@ namespace RPG_Heroes.Heroes
             EquippedWeapon = EquippedWeapon;
             ValidWeaponTypes = new Enums.WeaponType[] { Enums.WeaponType.Staff, Enums.WeaponType.Wand };
             ValidArmorTypes = new Enums.ArmorType[] { Enums.ArmorType.Cloth };
-            HeroAttribute heroAttribute = new HeroAttribute(1, 1, 8, 1, 1, 5);
+            HeroAttribute = new HeroAttribute(1, 1, 8, 1, 1, 5);
             
         }
+
+        public override HeroAttribute TotalAttributes()
+        {
+            int totalStrength = HeroAttribute.Strength;
+            int totalDexterity = HeroAttribute.Dexterity;
+            int totalIntelligence = HeroAttribute.Intelligence;
+            int totalLevelUpStrength = HeroAttribute.LevelUpStrength;
+            int totalLevelUpDexterity = HeroAttribute.LevelUpDexterity;
+            int totalLevelUpIntelligence = HeroAttribute.LevelUpIntelligence;
+
+
+            foreach (var item in EquippedArmor.Values)
+            {
+                totalStrength += HeroAttribute.Strength;
+                totalDexterity += HeroAttribute.Dexterity;
+                totalIntelligence += HeroAttribute.Intelligence;
+                totalLevelUpStrength += HeroAttribute.LevelUpStrength;
+                totalLevelUpDexterity += HeroAttribute.LevelUpDexterity;
+                totalLevelUpIntelligence += HeroAttribute.LevelUpIntelligence;
+            }
+            HeroAttribute totalAttributes = new(totalStrength, totalDexterity, totalIntelligence, totalLevelUpStrength, totalLevelUpDexterity, totalLevelUpIntelligence);
+
+            return totalAttributes;
+        }
+
         public override int Damage()
         {
             int heroDamage = 0;

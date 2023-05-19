@@ -18,16 +18,16 @@ namespace RPG_Heroes.Heroes
       
         public string Name { get; set; }
         public int Level { get; set; }
-        public string ClassName { get; set; }
+        public string? ClassName { get; set; }
 
-        public HeroAttribute LevelAttributes { get; set; }
-        public HeroAttribute HeroAttribute { get; set; }
-        public HeroAttribute DamagingAttribute { get; set; }
+        //public HeroAttribute? LevelAttributes { get; set; }
+        public HeroAttribute? HeroAttribute { get; set; }
+        //public HeroAttribute? DamagingAttribute { get; set; }
 
-        public Weapon EquippedWeapon { get; set; }
+        public Weapon? EquippedWeapon { get; set; }
         public Dictionary<Slot, Items.Items> EquippedArmor { get; set; }
-        public WeaponType[] ValidWeaponTypes { get; set; }
-        public ArmorType[] ValidArmorTypes { get; set; }
+        public WeaponType[]? ValidWeaponTypes { get; set; }
+        public ArmorType[]? ValidArmorTypes { get; set; }
 
         public Hero(string name)
         {
@@ -60,7 +60,7 @@ namespace RPG_Heroes.Heroes
         }
         public void EquipWeapon(Weapon weaponToEquip)
         {
-            if((!ValidWeaponTypes.Contains(weaponToEquip.WeaponType) || (weaponToEquip.RequiredLevel > Level))) 
+            if(!ValidWeaponTypes.Contains(weaponToEquip.WeaponType) || (weaponToEquip.RequiredLevel > Level)) 
             {
                 throw new InvalidWeaponException();
             } 
@@ -71,31 +71,10 @@ namespace RPG_Heroes.Heroes
             }
         }
         public abstract int Damage();
+
+
+        public abstract HeroAttribute TotalAttributes();
         
-
-        public HeroAttribute TotalAttributes()
-        {
-            int totalStrength = LevelAttributes.Strength;
-            int totalDexterity = LevelAttributes.Dexterity;
-            int totalIntelligence = LevelAttributes.Intelligence;
-            int totalLevelUpStrength = LevelAttributes.LevelUpStrength;
-            int totalLevelUpDexterity = LevelAttributes.LevelUpDexterity;
-            int totalLevelUpIntelligence = LevelAttributes.LevelUpIntelligence;
-                       
-
-            foreach (var item in EquippedArmor.Values)
-            {
-                totalStrength += LevelAttributes.Strength;
-                totalDexterity += LevelAttributes.Dexterity;
-                totalIntelligence += LevelAttributes.Intelligence;
-                totalLevelUpStrength += LevelAttributes.LevelUpStrength;
-                totalLevelUpDexterity += LevelAttributes.LevelUpDexterity;
-                totalLevelUpIntelligence += LevelAttributes.LevelUpIntelligence;
-            }
-            HeroAttribute totalAttributes = new(totalStrength, totalDexterity, totalIntelligence, totalLevelUpStrength, totalLevelUpDexterity, totalLevelUpIntelligence);
-            
-            return totalAttributes;
-        }
         
             public void DisplayHero()
         {
