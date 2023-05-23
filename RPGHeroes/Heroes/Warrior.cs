@@ -12,7 +12,7 @@ namespace RPG_Heroes.Heroes
         
         public Warrior(string name) : base(name)
         {
-            HeroAttribute heroAttribute = new HeroAttribute(5, 2, 1, 3, 2, 1);
+            HeroAttribute = new HeroAttribute(5, 2, 1, 3, 2, 1);
         }
         
 
