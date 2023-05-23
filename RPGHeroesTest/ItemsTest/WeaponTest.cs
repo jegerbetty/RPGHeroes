@@ -23,5 +23,20 @@ namespace RPGHeroesTest.ItemsTest
             Assert.Equal(expectedName, actualName);
         }
 
+        [Fact]
+        public void Create_CreateNewWeapon_ExpectCorrectRequiredLevel()
+        {
+            //Arrange
+            var weapon = new Weapon("Excalibur", 1, RPG_Heroes.Enum.Enums.WeaponType.Dagger, 5);
+            int expectedRequiredLevel = 1;
+
+            //Act
+            int actualRequiredLevel = weapon.RequiredLevel;
+
+            //Assert
+            Assert.Equal(expectedRequiredLevel, actualRequiredLevel);
+            
+        }
+
     }
 }
