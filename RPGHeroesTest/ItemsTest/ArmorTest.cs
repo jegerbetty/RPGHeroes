@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPG_Heroes.Heroes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -61,6 +62,20 @@ namespace RPGHeroesTest.ItemsTest
 
             //Assert
             Assert.Equal(expectedArmorType, actualArmorType);
+        }
+
+        [Fact]
+        public void Create_CreateNewArmor_ExpectCorrectArmorAttributes()
+        {
+            //Arrange
+            var armor = new RPG_Heroes.Items.Armor(RPG_Heroes.Enum.Enums.ArmorType.Leather, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 8, 1, 1, 5), RPG_Heroes.Enum.Enums.Slot.Body, 1);
+            HeroAttribute expectedArmorAttribute = new(1, 1, 8, 1, 1, 5);
+
+            //Act
+            HeroAttribute actualArmorAttribute = armor.ArmorAttribute;
+
+            //Assert
+            Assert.Equal(expectedArmorAttribute, actualArmorAttribute); //Results in Assert.Equal() fail, but the results (expected and actual) are the same.
         }
     }
 }
