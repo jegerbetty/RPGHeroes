@@ -84,5 +84,21 @@ namespace RPGHeroesTest.HeroesTests
             //Assert
             Assert.Equal(expectedRequiredLevel, actualRequiredLevel);
         }
+
+        [Fact]
+        public void EquipWeapon_ExpectCorrectWeaponType() 
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            Weapon weapon = new Weapon("Magic Stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Wand, 5);
+            RPG_Heroes.Enum.Enums.WeaponType expectedEquipableWeaponType = RPG_Heroes.Enum.Enums.WeaponType.Wand;
+
+            //Act
+            hero.EquipWeapon(weapon);
+            RPG_Heroes.Enum.Enums.WeaponType actualEquipableWeaponType = hero.EquippedWeapon.WeaponType;
+
+            //Assert
+            Assert.Equal(expectedEquipableWeaponType, actualEquipableWeaponType);
+        }
     }
 }
