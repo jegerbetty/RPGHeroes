@@ -36,8 +36,13 @@ namespace RPG_Heroes.Heroes
 
         public HeroAttribute(int strength, int dexterity, int intelligence, int levelUpStrength, int levelUpDexterity, int levelUpIntelligence)
         {
-            
-        }
-       
+            this.Strength = strength;
+            this.Dexterity = dexterity;
+            this.Intelligence = intelligence;
+
+            this.LevelUpStrength = levelUpStrength;
+            this.LevelUpDexterity = levelUpDexterity;
+            this.LevelUpIntelligence = levelUpIntelligence;
+        }       
     }
 }

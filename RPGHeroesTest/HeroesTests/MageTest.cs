@@ -25,7 +25,6 @@ namespace RPGHeroesTest.HeroesTests
         }
 
         [Fact]
-
         public void Create_CreateNewMage_ExpectCorrectLevel()
         {
             //Arrange
@@ -37,6 +36,20 @@ namespace RPGHeroesTest.HeroesTests
 
             //Assert
             Assert.Equal(expectedLevel, actualLevel);
+        }
+
+        [Fact]
+        public void Create_CreateNewMage_ExpectCorrectAttributes()
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            HeroAttribute expectedAttributes = new(1, 1, 8, 1, 1, 5);
+
+            //Act
+            HeroAttribute actualAttributes = hero.HeroAttribute;
+
+            //Assert
+            Assert.Equal(expectedAttributes, actualAttributes);
         }
     }
 }
