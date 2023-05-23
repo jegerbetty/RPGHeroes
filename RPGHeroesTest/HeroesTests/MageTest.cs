@@ -23,6 +23,20 @@ namespace RPGHeroesTest.HeroesTests
             Assert.Equal(expectedName, actualName);
 
         }
-        
+
+        [Fact]
+
+        public void Create_CreateNewMage_ExpectCorrectLevel()
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            int expectedLevel = 1;
+
+            //Act
+            int actualLevel = hero.Level;
+
+            //Assert
+            Assert.Equal(expectedLevel, actualLevel);
+        }
     }
 }
