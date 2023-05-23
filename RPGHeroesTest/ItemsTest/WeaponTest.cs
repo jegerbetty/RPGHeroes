@@ -65,5 +65,19 @@ namespace RPGHeroesTest.ItemsTest
             //Assert
             Assert.Equal(expectedWeaponType, actualWeaponType);
         }
+
+        [Fact]
+        public void Create_CreateNewWeapon_ExpectCorrectDamage()
+        {
+            //Arrange
+            var weapon = new Weapon("Excalibur", 1, RPG_Heroes.Enum.Enums.WeaponType.Dagger, 5);
+            int expectedWeaponDamage = 5;
+
+            //Act
+            int actualWeaponDamage = weapon.WeaponDamage;
+
+            //Assert
+            Assert.Equal(expectedWeaponDamage, actualWeaponDamage);
+        }
     }
 }
