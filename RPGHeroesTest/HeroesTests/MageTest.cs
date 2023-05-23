@@ -50,6 +50,24 @@ namespace RPGHeroesTest.HeroesTests
 
             //Assert
             Assert.Equal(expectedAttributes, actualAttributes);
+
+            //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
+        }
+
+        [Fact]
+        public void LevelUp_WhenLevellingUp_ExpectCorrectIncreasedAttributes()
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            HeroAttribute levelOneAttributes = hero.HeroAttribute;
+            HeroAttribute expectedLevelTwoAttributes = new(levelOneAttributes.Strength +1, levelOneAttributes.Dexterity +1, levelOneAttributes.Intelligence +5, levelOneAttributes.LevelUpStrength, levelOneAttributes.LevelUpDexterity, levelOneAttributes.LevelUpIntelligence);
+
+            //Act
+            hero.LevelUp();
+            HeroAttribute actualLevelTwoAttributes = hero.HeroAttribute;
+
+            //Assert
+            Assert.Equal(expectedLevelTwoAttributes, actualLevelTwoAttributes);
         }
     }
 }
