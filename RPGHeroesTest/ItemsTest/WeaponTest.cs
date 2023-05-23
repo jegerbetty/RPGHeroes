@@ -38,5 +38,18 @@ namespace RPGHeroesTest.ItemsTest
             
         }
 
+        [Fact]
+        public void Create_CreateNewWeapon_ExpectCorrectSlot()
+        {
+            //Arrange
+            var weapon = new Weapon("Excalibur", 1, RPG_Heroes.Enum.Enums.WeaponType.Dagger, 5);
+            RPG_Heroes.Enum.Enums.Slot expectedSlot = RPG_Heroes.Enum.Enums.Slot.Weapon;
+
+            //Act
+            RPG_Heroes.Enum.Enums.Slot actualSlot = weapon.Slot;
+
+            //Assert
+            Assert.Equal(expectedSlot, actualSlot);
+        }
     }
 }
