@@ -49,9 +49,7 @@ namespace RPGHeroesTest.HeroesTests
             HeroAttribute actualAttributes = hero.HeroAttribute;
 
             //Assert
-            Assert.Equal(expectedAttributes, actualAttributes);
-
-            //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
+            Assert.Equal(expectedAttributes, actualAttributes); //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
         }
 
         [Fact]
@@ -67,7 +65,7 @@ namespace RPGHeroesTest.HeroesTests
             HeroAttribute actualLevelTwoAttributes = hero.HeroAttribute;
 
             //Assert
-            Assert.Equal(expectedLevelTwoAttributes, actualLevelTwoAttributes);
+            Assert.Equal(expectedLevelTwoAttributes, actualLevelTwoAttributes); //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
         }
     }
 }
