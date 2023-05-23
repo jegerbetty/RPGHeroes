@@ -54,7 +54,7 @@ namespace RPG_Heroes.Heroes
             }
             else
             {
-                
+                EquippedArmor.Remove(armorToEquip.Slot);
                 EquippedArmor.Add(armorToEquip.Slot, armorToEquip);
             }
         }
