@@ -35,5 +35,18 @@ namespace RPGHeroesTest.ItemsTest
             //Assert
             Assert.Equal(expectedRequiredLevel, actualRequiredLevel);
         }
+
+        [Fact]
+        public void Create_CreateNewArmor_ExpectCorrectSlot()
+        {
+            //Arrange
+            var armor = new RPG_Heroes.Items.Armor(RPG_Heroes.Enum.Enums.ArmorType.Leather, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 8, 1, 1, 5), RPG_Heroes.Enum.Enums.Slot.Body, 1);
+            RPG_Heroes.Enum.Enums.Slot expectedSlot = RPG_Heroes.Enum.Enums.Slot.Body;
+
+            //Act
+            RPG_Heroes.Enum.Enums.Slot actualSlot = armor.Slot;
+
+            Assert.Equal(expectedSlot, actualSlot);
+        }
     }
 }
