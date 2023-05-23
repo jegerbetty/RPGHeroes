@@ -53,7 +53,7 @@ namespace RPGHeroesTest.HeroesTests
         }
 
         [Fact]
-        public void LevelUp_WhenLevellingUp_ExpectCorrectIncreasedAttributes()
+        public void LevelUp_WhenLevellingUpMage_ExpectCorrectIncreasedAttributes()
         {
             //Arrange
             var hero = new Mage("Alfred");
