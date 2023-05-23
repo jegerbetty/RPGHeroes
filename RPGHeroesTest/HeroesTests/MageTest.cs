@@ -100,5 +100,21 @@ namespace RPGHeroesTest.HeroesTests
             //Assert
             Assert.Equal(expectedEquipableWeaponType, actualEquipableWeaponType);
         }
+
+        [Fact]
+        public void EquipArmor_ExpectCorrectArmorType()
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            Armor armor = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 8, 1, 1, 5), RPG_Heroes.Enum.Enums.Slot.Body, 1);
+            RPG_Heroes.Enum.Enums.ArmorType expectedEquipableArmorType = RPG_Heroes.Enum.Enums.ArmorType.Cloth;
+            
+            //Act
+            hero.EquipArmor(armor);
+            RPG_Heroes.Enum.Enums.ArmorType actualEquipableArmorType = hero.EquippedArmor[RPG_Heroes.Enum.Enums.Slot.Body].; //don't know what comes at the end here to make it work
+
+            //Assert
+            Assert.Equal(expectedEquipableArmorType, actualEquipableArmorType);
+        }
     }
 }
