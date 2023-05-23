@@ -1,4 +1,5 @@
 ﻿using RPG_Heroes.Heroes;
+using RPG_Heroes.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,6 +67,22 @@ namespace RPGHeroesTest.HeroesTests
 
             //Assert
             Assert.Equal(expectedLevelTwoAttributes, actualLevelTwoAttributes); //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
+        }
+
+        [Fact]
+        public void EquipWeapon_ExpectCorrectLevelRequirement()
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            Weapon weapon = new Weapon("Magic Stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Wand, 5);
+            int expectedRequiredLevel = 1;
+
+            //Act
+            hero.EquipWeapon(weapon);
+            int actualRequiredLevel = hero.EquippedWeapon.RequiredLevel;
+
+            //Assert
+            Assert.Equal(expectedRequiredLevel, actualRequiredLevel);
         }
     }
 }
