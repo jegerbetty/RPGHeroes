@@ -67,5 +67,27 @@ namespace RPGHeroesTest.HeroesTests
             //Assert
             Assert.Equal(expectedLevelTwoAttributes, actualLevelTwoAttributes); //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
         }
+
+        [Fact]
+        public void Display_DisplayHero_ExpectDisplayedState()
+        {
+            //Arrange
+            var hero = new Ranger("Aragorn");
+            string expectedDisplayedState =
+            $"Character name: {hero.Name}\n" +
+            $"Character class: {hero.ClassName}\n" +
+            $"Character level: {hero.Level}\n" +
+            $"Character total strength: {hero.TotalAttributes().Strength}\n" +
+            $"Character total dexterity: {hero.TotalAttributes().Dexterity}\n" +
+            $"Character total intelligence: {hero.TotalAttributes().Intelligence}\n" +
+            $"Character total damage: {hero.Damage()}\n";
+
+            //Act
+            string actualDisplayedState = hero.DisplayHero();
+
+            //Assert
+            Assert.Equal(expectedDisplayedState, actualDisplayedState);
+
+        }
     }
 }
