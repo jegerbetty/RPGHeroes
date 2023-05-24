@@ -222,5 +222,22 @@ namespace RPGHeroesTest.HeroesTests
             Assert.Equal(expectedWeaponDamage, actualWeaponDamage);
 
         }
+
+        [Fact]
+        public void EquipWeapon_WeaponEquipped_ExpectCorrectCalculatedDamage()
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            Weapon weapon = new Weapon("Magic stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Wand, 5);
+            hero.EquipWeapon(weapon);
+            double expectedWeaponDamage = 5.4;
+
+            //Act
+            double actualWeaponDamage = hero.Damage();
+
+            //Assert
+            Assert.Equal(expectedWeaponDamage, actualWeaponDamage);
+
+        }
     }
 }
