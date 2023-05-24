@@ -165,5 +165,23 @@ namespace RPGHeroesTest.HeroesTests
             //Assert
             Assert.Equal(expectedTotalAttributes, actualTotalAttributes); //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
         }
+
+        [Fact]
+        public void EquipArmor_ReplacedPieceOfArmor_ExpectCorrectTotalAttributes()
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            Armor armor = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 1, 0, 0, 0), RPG_Heroes.Enum.Enums.Slot.Body, 1);
+            Armor armorHead = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Helmet", new RPG_Heroes.Heroes.HeroAttribute(4, 4, 4, 0, 0, 0), RPG_Heroes.Enum.Enums.Slot.Body, 1);
+            HeroAttribute expectedTotalAttributes = new(5, 5, 12, 1, 1, 5);
+
+            //Act
+            hero.EquipArmor(armor);
+            hero.EquipArmor(armorHead);
+            HeroAttribute actualTotalAttributes = hero.TotalAttributes();
+
+            //Assert
+            Assert.Equal(expectedTotalAttributes, actualTotalAttributes); //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
+        }
     }
 }
