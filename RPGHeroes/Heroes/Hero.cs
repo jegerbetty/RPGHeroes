@@ -76,7 +76,7 @@ namespace RPG_Heroes.Heroes
         public abstract HeroAttribute TotalAttributes();
         
         
-            public void DisplayHero()
+            public string DisplayHero()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendFormat($"Character name: {Name}\n");
@@ -86,6 +86,8 @@ namespace RPG_Heroes.Heroes
             sb.AppendFormat($"Character total dexterity: {TotalAttributes().Dexterity}\n"); 
             sb.AppendFormat($"Character total intelligence: {TotalAttributes().Intelligence}\n"); 
             sb.AppendFormat($"Character total damage: {Damage()}\n");
+
+            return sb.ToString();
         }
     }
 }

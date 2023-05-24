@@ -5,8 +5,10 @@ using RPG_Heroes.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace RPGHeroesTest.HeroesTests
 {
@@ -279,6 +281,28 @@ namespace RPGHeroesTest.HeroesTests
 
             //Assert
             Assert.Equal(expectedEquipmentDamage, actualEquipmentDamage); //When including armorHead and armorLegs, Expected: 5.55, Actual: 5.550000000000001. So it passes, but have removed these lines because of this. 
+        }
+
+        [Fact]
+        public void Display_DisplayHero_ExpectDisplayedState() 
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            string expectedDisplayedState = 
+            $"Character name: {hero.Name}\n" +
+            $"Character class: {hero.ClassName}\n" +
+            $"Character level: {hero.Level}\n" +
+            $"Character total strength: {hero.TotalAttributes().Strength}\n" +
+            $"Character total dexterity: {hero.TotalAttributes().Dexterity}\n" +
+            $"Character total intelligence: {hero.TotalAttributes().Intelligence}\n" +
+            $"Character total damage: {hero.Damage()}\n";
+
+            //Act
+            string actualDisplayedState = hero.DisplayHero();
+
+            //Assert
+            Assert.Equal(expectedDisplayedState, actualDisplayedState);
+
         }
     }
 }
