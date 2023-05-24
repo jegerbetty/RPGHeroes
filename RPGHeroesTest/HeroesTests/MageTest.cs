@@ -79,7 +79,7 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             var hero = new Mage("Alfred");
-            Weapon weapon = new Weapon("Magic Stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Wand, 5);
+            Weapon weapon = new Weapon("Magic Stick", 1, Enums.WeaponType.Wand, 5);
             int expectedRequiredLevel = 1;
 
             //Act
@@ -96,7 +96,7 @@ namespace RPGHeroesTest.HeroesTests
             //Arrange
             var hero = new Mage("Alfred");
             Weapon weapon = new Weapon("Magic Stick", 1, Enums.WeaponType.Wand, 5);
-            Enums.WeaponType expectedEquipableWeaponType = RPG_Heroes.Enum.Enums.WeaponType.Wand;
+            Enums.WeaponType expectedEquipableWeaponType = Enums.WeaponType.Wand;
 
             //Act
             hero.EquipWeapon(weapon);
