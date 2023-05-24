@@ -102,23 +102,46 @@ namespace RPGHeroesTest.HeroesTests
             Assert.Equal(expectedEquipableWeaponType, actualEquipableWeaponType);
         }
 
-        //  [Fact]
-        // public void EquipArmor_ExpectCorrectArmorType()
-        //  {
+        /*  [Fact]
+         public void EquipArmor_ExpectCorrectArmorType()
+          {
         //Arrange
-        //     var hero = new Mage("Alfred");
-        //     Armor armor = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 8, 1, 1, 5), RPG_Heroes.Enum.Enums.Slot.Body, 1);
-        //     RPG_Heroes.Enum.Enums.ArmorType expectedEquipableArmorType = RPG_Heroes.Enum.Enums.ArmorType.Cloth;
+             var hero = new Mage("Alfred");
+             Armor armor = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 8, 1, 1, 5), RPG_Heroes.Enum.Enums.Slot.Body, 1);
+             RPG_Heroes.Enum.Enums.ArmorType expectedEquipableArmorType = RPG_Heroes.Enum.Enums.ArmorType.Cloth;
 
         //Act
-        //     hero.EquipArmor(armor);
-        //     RPG_Heroes.Enum.Enums.ArmorType actualEquipableArmorType = hero.EquippedArmor[RPG_Heroes.Enum.Enums.Slot.Body].; //don't know what comes at the end here to make it work
+             hero.EquipArmor(armor);
+             RPG_Heroes.Enum.Enums.ArmorType actualEquipableArmorType = hero.EquippedArmor[RPG_Heroes.Enum.Enums.Slot.Body].; //don't know what comes at the end here to make it work
 
         //Assert
-        //     Assert.Equal(expectedEquipableArmorType, actualEquipableArmorType);
-        // }
+             Assert.Equal(expectedEquipableArmorType, actualEquipableArmorType);
+         } */
 
         [Fact]
-        public void 
+        public void EquipArmor_NoArmor_ExpectCorrectTotalAttributes()
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            HeroAttribute expectedTotalAttributes = new(1, 1, 8, 1, 1, 5);
+
+            //Act
+            HeroAttribute actualTotalAttributes = hero.TotalAttributes();
+
+            //Assert
+            Assert.Equal(expectedTotalAttributes, actualTotalAttributes); //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
+        }
+
+        [Fact]
+        public void EquipArmor_OnePieceOfArmor_ExpectCorrectTotalAttributes()
+        {
+
+        }
+
+        [Fact]
+        public void EquipArmor_TwoPiecesOfArmor_ExpectCorrectTotalAttributes()
+        {
+
+        }
     }
 }
