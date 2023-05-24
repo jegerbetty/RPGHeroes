@@ -141,16 +141,17 @@ namespace RPGHeroesTest.HeroesTests
             HeroAttribute expectedTotalAttributes = new(2, 2, 9, 1, 1, 5);
 
             //Act
+            hero.EquipArmor(armor);
             HeroAttribute actualTotalAttributes = hero.TotalAttributes();
 
             //Assert
-            Assert.Equal(expectedTotalAttributes, actualTotalAttributes); //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
+            Assert.Equal(expectedTotalAttributes, actualTotalAttributes); //Test failed. Expected: 2,2,9,1,1,5, Actual: 1,1,8,1,1,5 - need to come back to this one
         }
 
         [Fact]
         public void EquipArmor_TwoPiecesOfArmor_ExpectCorrectTotalAttributes()
         {
-
+       
         }
     }
 }
