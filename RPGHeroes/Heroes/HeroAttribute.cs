@@ -43,6 +43,6 @@ namespace RPG_Heroes.Heroes
             this.LevelUpStrength = levelUpStrength;
             this.LevelUpDexterity = levelUpDexterity;
             this.LevelUpIntelligence = levelUpIntelligence;
-        }       
+        }
     }
 }
