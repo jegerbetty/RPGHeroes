@@ -196,6 +196,15 @@ namespace RPGHeroesTest.HeroesTests
             Assert.Throws<InvalidWeaponException>(() => hero.EquipWeapon(testStaff));
         }
 
-        
+        [Fact]
+        public void EquipWeapon_EquipInvalidWeapon_ThrowsInvalidWeaponException()
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            Weapon testSword = new Weapon("Excalibur", 1, RPG_Heroes.Enum.Enums.WeaponType.Sword, 5);
+
+            // Act and Assert
+            Assert.Throws<InvalidWeaponException>(() => hero.EquipWeapon(testSword));
+        }
     }
 }
