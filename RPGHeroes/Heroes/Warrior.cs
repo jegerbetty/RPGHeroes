@@ -1,4 +1,5 @@
 ﻿using RPG_Heroes.Enum;
+using RPG_Heroes.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,12 +29,15 @@ namespace RPG_Heroes.Heroes
 
             foreach (var item in EquippedArmor.Values)
             {
-                totalStrength ++;
-                totalDexterity ++;
-                totalIntelligence ++;
-                totalLevelUpStrength = HeroAttribute.LevelUpStrength;
-                totalLevelUpDexterity = HeroAttribute.LevelUpDexterity;
-                totalLevelUpIntelligence = HeroAttribute.LevelUpIntelligence;
+                if (item is Armor armor)
+                {
+                    totalStrength += armor.ArmorAttribute.Strength;
+                    totalDexterity += armor.ArmorAttribute.Dexterity;
+                    totalIntelligence += armor.ArmorAttribute.Intelligence;
+                    totalLevelUpStrength += armor.ArmorAttribute.LevelUpStrength;
+                    totalLevelUpDexterity += armor.ArmorAttribute.LevelUpDexterity;
+                    totalLevelUpIntelligence += armor.ArmorAttribute.LevelUpIntelligence;
+                }
             }
             HeroAttribute totalAttributes = new(totalStrength, totalDexterity, totalIntelligence, totalLevelUpStrength, totalLevelUpDexterity, totalLevelUpIntelligence);
 
