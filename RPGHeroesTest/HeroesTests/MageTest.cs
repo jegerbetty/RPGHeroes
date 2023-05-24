@@ -207,6 +207,20 @@ namespace RPGHeroesTest.HeroesTests
             //Assert
             Assert.Equal(expectedTotalAttributes, actualTotalAttributes); //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
         }
-      
+
+        [Fact]
+        public void EquipWeapon_NoWeaponEquipped_ExpectCorrectCalculatedDamage() 
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            double expectedWeaponDamage = 1.08;
+
+            //Act
+            double actualWeaponDamage = hero.Damage();
+
+            //Assert
+            Assert.Equal(expectedWeaponDamage, actualWeaponDamage);
+
+        }
     }
 }
