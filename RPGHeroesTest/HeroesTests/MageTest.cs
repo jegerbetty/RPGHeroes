@@ -2,6 +2,7 @@
 using RPG_Heroes.Exceptions;
 using RPG_Heroes.Heroes;
 using RPG_Heroes.Items;
+using RPG_Heroes.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -94,12 +95,12 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             var hero = new Mage("Alfred");
-            Weapon weapon = new Weapon("Magic Stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Wand, 5);
-            RPG_Heroes.Enum.Enums.WeaponType expectedEquipableWeaponType = RPG_Heroes.Enum.Enums.WeaponType.Wand;
+            Weapon weapon = new Weapon("Magic Stick", 1, Enums.WeaponType.Wand, 5);
+            Enums.WeaponType expectedEquipableWeaponType = RPG_Heroes.Enum.Enums.WeaponType.Wand;
 
             //Act
             hero.EquipWeapon(weapon);
-            RPG_Heroes.Enum.Enums.WeaponType actualEquipableWeaponType = hero.EquippedWeapon.WeaponType;
+            Enums.WeaponType actualEquipableWeaponType = hero.EquippedWeapon.WeaponType;
 
             //Assert
             Assert.Equal(expectedEquipableWeaponType, actualEquipableWeaponType);
@@ -127,7 +128,7 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             var hero = new Mage("Alfred");
-            Weapon testStaff = new Weapon("Hitting stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Staff, 5);
+            Weapon testStaff = new Weapon("Hitting stick", 1, Enums.WeaponType.Staff, 5);
             testStaff.RequiredLevel = 4;
             // Act and Assert
             Assert.Throws<InvalidWeaponException>(() => hero.EquipWeapon(testStaff));
@@ -138,7 +139,7 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             var hero = new Mage("Alfred");
-            Weapon testSword = new Weapon("Excalibur", 1, RPG_Heroes.Enum.Enums.WeaponType.Sword, 5);
+            Weapon testSword = new Weapon("Excalibur", 1, Enums.WeaponType.Sword, 5);
 
             // Act and Assert
             Assert.Throws<InvalidWeaponException>(() => hero.EquipWeapon(testSword));
@@ -163,7 +164,7 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             var hero = new Mage("Alfred");
-            Armor armor = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 1, 0, 0, 0), RPG_Heroes.Enum.Enums.Slot.Body, 1);
+            Armor armor = new Armor(Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Body, 1);
             HeroAttribute expectedTotalAttributes = new(2, 2, 9, 1, 1, 5);
 
             //Act
@@ -179,8 +180,8 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             var hero = new Mage("Alfred");
-            Armor armor = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 1, 0, 0, 0), RPG_Heroes.Enum.Enums.Slot.Body, 1);
-            Armor armorHead = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Helmet", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 1, 0, 0, 0), RPG_Heroes.Enum.Enums.Slot.Head, 1);
+            Armor armor = new Armor(Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Body, 1);
+            Armor armorHead = new Armor(Enums.ArmorType.Cloth, "Trusty Helmet", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Head, 1);
             HeroAttribute expectedTotalAttributes = new(3, 3, 10, 1, 1, 5);
 
             //Act
@@ -197,8 +198,8 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             var hero = new Mage("Alfred");
-            Armor armor = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 1, 0, 0, 0), RPG_Heroes.Enum.Enums.Slot.Body, 1);
-            Armor armorHead = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Helmet", new RPG_Heroes.Heroes.HeroAttribute(4, 4, 4, 0, 0, 0), RPG_Heroes.Enum.Enums.Slot.Body, 1);
+            Armor armor = new Armor(Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Body, 1);
+            Armor armorHead = new Armor(Enums.ArmorType.Cloth, "Trusty Helmet", new HeroAttribute(4, 4, 4, 0, 0, 0), Enums.Slot.Body, 1);
             HeroAttribute expectedTotalAttributes = new(5, 5, 12, 1, 1, 5);
 
             //Act
@@ -230,7 +231,7 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             var hero = new Mage("Alfred");
-            Weapon weapon = new Weapon("Magic stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Wand, 5);
+            Weapon weapon = new Weapon("Magic stick", 1, Enums.WeaponType.Wand, 5);
             double expectedWeaponDamage = 5.4;
 
             //Act
@@ -247,8 +248,8 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             var hero = new Mage("Alfred");
-            Weapon weapon = new Weapon("Magic stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Wand, 5);
-            Weapon weaponStaff = new Weapon("Hitting stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Staff, 6);
+            Weapon weapon = new Weapon("Magic stick", 1, Enums.WeaponType.Wand, 5);
+            Weapon weaponStaff = new Weapon("Hitting stick", 1, Enums.WeaponType.Staff, 6);
             double expectedWeaponDamage = 6.48;
 
             //Act
@@ -266,8 +267,8 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             var hero = new Mage("Alfred");
-            Weapon weapon = new Weapon("Magic stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Wand, 5);
-            Armor armor = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), RPG_Heroes.Enum.Enums.Slot.Body, 1);
+            Weapon weapon = new Weapon("Magic stick", 1, Enums.WeaponType.Wand, 5);
+            Armor armor = new Armor(Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Body, 1);
             //Armor armorHead = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Helmet", new HeroAttribute(1, 1, 1, 0, 0, 0), RPG_Heroes.Enum.Enums.Slot.Head, 1);
             //Armor armorLegs = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Trousers", new HeroAttribute(1,1,1,0,0,0), RPG_Heroes.Enum.Enums.Slot.Legs, 1);
             double expectedEquipmentDamage = 5.45;
