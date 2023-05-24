@@ -70,7 +70,7 @@ namespace RPG_Heroes.Heroes
                 EquippedWeapon = weaponToEquip;
             }
         }
-        public abstract int Damage();
+        public abstract double Damage();
 
 
         public abstract HeroAttribute TotalAttributes();

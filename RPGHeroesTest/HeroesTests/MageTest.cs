@@ -119,6 +119,29 @@ namespace RPGHeroesTest.HeroesTests
              Assert.Equal(expectedEquipableArmorType, actualEquipableArmorType);
          } */
 
+
+        [Fact]
+        public void EquipWeapon_EquipTooHighLevelWeapon_ThrowsInvalidWeaponException()
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            Weapon testStaff = new Weapon("Hitting stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Staff, 5);
+            testStaff.RequiredLevel = 4;
+            // Act and Assert
+            Assert.Throws<InvalidWeaponException>(() => hero.EquipWeapon(testStaff));
+        }
+
+        [Fact]
+        public void EquipWeapon_EquipInvalidWeapon_ThrowsInvalidWeaponException()
+        {
+            //Arrange
+            var hero = new Mage("Alfred");
+            Weapon testSword = new Weapon("Excalibur", 1, RPG_Heroes.Enum.Enums.WeaponType.Sword, 5);
+
+            // Act and Assert
+            Assert.Throws<InvalidWeaponException>(() => hero.EquipWeapon(testSword));
+        }
+
         [Fact]
         public void EquipArmor_NoArmor_ExpectCorrectTotalAttributes()
         {
@@ -184,27 +207,6 @@ namespace RPGHeroesTest.HeroesTests
             //Assert
             Assert.Equal(expectedTotalAttributes, actualTotalAttributes); //Results in Assert.Equal() fail, but the results (expected and actual) are the same. 
         }
-        
-        [Fact]
-        public void EquipWeapon_EquipTooHighLevelWeapon_ThrowsInvalidWeaponException()
-        {
-            //Arrange
-            var hero = new Mage("Alfred");
-            Weapon testStaff = new Weapon("Hitting stick", 1, RPG_Heroes.Enum.Enums.WeaponType.Staff, 5);
-            testStaff.RequiredLevel = 4;
-            // Act and Assert
-            Assert.Throws<InvalidWeaponException>(() => hero.EquipWeapon(testStaff));
-        }
-
-        [Fact]
-        public void EquipWeapon_EquipInvalidWeapon_ThrowsInvalidWeaponException()
-        {
-            //Arrange
-            var hero = new Mage("Alfred");
-            Weapon testSword = new Weapon("Excalibur", 1, RPG_Heroes.Enum.Enums.WeaponType.Sword, 5);
-
-            // Act and Assert
-            Assert.Throws<InvalidWeaponException>(() => hero.EquipWeapon(testSword));
-        }
+      
     }
 }

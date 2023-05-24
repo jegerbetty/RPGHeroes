@@ -53,17 +53,17 @@ namespace RPG_Heroes.Heroes
             return totalAttributes;
         }
 
-        public override int Damage()
+        public override double Damage()
         {
-            int heroDamage = 0;
+            double heroDamage = 0;
 
             if (EquippedWeapon == null)
             {
-                heroDamage = 1 * (1 + (int)TotalAttributes().Intelligence / 100);
+                heroDamage = 1 * (1 + (double)TotalAttributes().Intelligence / 100);
             }
             else
             {
-                heroDamage = EquippedWeapon.WeaponDamage * (1 + (int)TotalAttributes().Intelligence / 100);
+                heroDamage = EquippedWeapon.WeaponDamage * (1 + (double)TotalAttributes().Intelligence / 100);
             }
             return heroDamage;
         }
