@@ -28,12 +28,12 @@ namespace RPG_Heroes.Heroes
 
             foreach (var item in EquippedArmor.Values)
             {
-                totalStrength += HeroAttribute.Strength;
-                totalDexterity += HeroAttribute.Dexterity;
-                totalIntelligence += HeroAttribute.Intelligence;
-                totalLevelUpStrength += HeroAttribute.LevelUpStrength;
-                totalLevelUpDexterity += HeroAttribute.LevelUpDexterity;
-                totalLevelUpIntelligence += HeroAttribute.LevelUpIntelligence;
+                totalStrength ++;
+                totalDexterity ++;
+                totalIntelligence ++;
+                totalLevelUpStrength = HeroAttribute.LevelUpStrength;
+                totalLevelUpDexterity = HeroAttribute.LevelUpDexterity;
+                totalLevelUpIntelligence = HeroAttribute.LevelUpIntelligence;
             }
             HeroAttribute totalAttributes = new(totalStrength, totalDexterity, totalIntelligence, totalLevelUpStrength, totalLevelUpDexterity, totalLevelUpIntelligence);
 
