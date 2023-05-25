@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RPG_Heroes.Heroes
 {
-    public class HeroAttribute
+    public record HeroAttribute
     {
         /*Strength – determines the physical strength of the character.
         *• Dexterity – determines the characters ability to attack with speed and nimbleness.
@@ -31,9 +31,6 @@ namespace RPG_Heroes.Heroes
         public int LevelUpStrength { get; set; }
         public int LevelUpDexterity { get; set; }
         public int LevelUpIntelligence { get; set; }
- 
-        
-
         public HeroAttribute(int strength, int dexterity, int intelligence, int levelUpStrength, int levelUpDexterity, int levelUpIntelligence)
         {
             this.Strength = strength;

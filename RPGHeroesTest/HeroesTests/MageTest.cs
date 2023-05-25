@@ -10,11 +10,21 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Xunit.Abstractions;
+
+//dotnet test --filter FullyQualifiedName~RPGHeroesTest.HeroesTests.MageTest.EquipArmor_ExpectCorrectArmorType --logger "console;verbosity=detailed"
 
 namespace RPGHeroesTest.HeroesTests
 {
     public class MageTest
     {
+        private readonly ITestOutputHelper output;
+
+        public MageTest(ITestOutputHelper output)
+        {
+            this.output = output;
+        }
+
         [Fact]
         public void Create_CreateNewMage_ExpectCorrectName()
         {
@@ -106,22 +116,22 @@ namespace RPGHeroesTest.HeroesTests
             Assert.Equal(expectedEquipableWeaponType, actualEquipableWeaponType);
         }
 
-         /* [Fact]
+          [Fact]
          public void EquipArmor_ExpectCorrectArmorType()
           {
              //Arrange
              var hero = new Mage("Alfred");
-             Armor armor = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), RPG_Heroes.Enum.Enums.Slot.Body, 1);
-             RPG_Heroes.Enum.Enums.ArmorType expectedEquipableArmorType = RPG_Heroes.Enum.Enums.ArmorType.Cloth;
+             Armor armor = new(Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Body, 1);
+            const Enums.ArmorType expectedEquipableArmorType = Enums.ArmorType.Cloth;
 
              //Act
              hero.EquipArmor(armor);
-             RPG_Heroes.Enum.Enums.ArmorType actualEquipableArmorType = hero.EquippedArmor[RPG_Heroes.Enum.Enums.Slot.Body].ArmorType; //den vil ikke tillate dette
+             RPG_Heroes.Enum.Enums.ArmorType actualEquipableArmorType = hero.EquippedArmor[RPG_Heroes.Enum.Enums.Slot.Body].ArmorType;
 
-             //Assert
+            output.WriteLine("Expecting: " + expectedEquipableArmorType.ToString() + ", Got: " + actualEquipableArmorType.ToString());
+            //Assert
              Assert.Equal(expectedEquipableArmorType, actualEquipableArmorType);
-         } */
-
+         }
 
         [Fact]
         public void EquipWeapon_EquipTooHighLevelWeapon_ThrowsInvalidWeaponException()
