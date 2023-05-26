@@ -90,10 +90,10 @@ The following tests were done on items:
 13 of the tests completed in this project result in Assert.Equal() fail, but the results (expected and actual) are the same. The reason for this is that Assert.Equal() uses reference comparison, and the expected and actual results are located in different locations in the memory, the tests are failing (even though the values are the same). I have seen some have used Assert.Equivalent(), but I could not find documentation for how this should be possible to use. Perhaps a different version of .NET would solve this. 
 A different way of solving this would perhaps be to change the HeroAttributes class to Records, but I have not been able to teach myself this before submitting this assignment. I will try to create a new project where it is done in this way. When I have done that, this README will be updated with a link to the new project. 
 
-Test "Hero damage should be calculated correctly with weapon and armor equipped": When filling all armor slots, I had the following Expected: 5.55, Actual: 5.550000000000001. So it passes, but have changed the lines for all armor (using only one armor slot) because of this.
+Test "Hero damage should be calculated correctly with weapon and armor equipped": When filling all armor slots, I had the following Expected: 5.55, Actual: 5.550000000000001. So it passes, but have changed the lines for all armor (using only one armor slot) because of this. So this is a passing test in the console application right now. 
 
 
 
 ## Clarification on "missing" commits
-I originally had a different project, but I received the following error in that project: The debug executable ... specified in the ... debug profile does not exist
+I originally had a different project, but I received the following error in that project: "The debug executable ... specified in the ... debug profile does not exist"
 I attempted correcting this so the project would work, but I had to create a new project instead - and I copied the code from the old project. So all the commits I had made on the previous project are therefore not included here. 
