@@ -32,12 +32,14 @@ All heroes should have the following public facing methods:
 * TotalAttributes (calculate total attributes with the following calculation: Total = LevelAttributes + (Sum of ArmorAttribute for all Armor in Equipment)) 
 * Display (the following details of the hero should be displayed: Name, Class, Level, Total strength, Total dexterity, Total intelligence, Damage)
 
-HeroAttributes class shall encapsulate the following attributes:
+HeroAttribute class shall encapsulate the following attributes:
 * Strength
 * Dexterity
 * Intelligence
 
 I have included the levelling attributes in the HeroAttributes class. Levelling attributes are what the hero's attributes incease with when they level up. 
+
+**Update:** The HeroAttribute class has been changed to a HeroAttribute record, even though the assignment asks for a class. This was in order to fix the issue with unit testing when using hero attributes. 
 
 ## Description of content in classes in Items file
 The Items class is the parent class to both armor and weapon. Alle items share the following fields:
@@ -88,8 +90,8 @@ The following tests were done on items:
 
 
 ## Clarification on "failed" tests
-13 of the tests completed in this project result in Assert.Equal() fail, but the results (expected and actual) are the same. The reason for this is that Assert.Equal() uses reference comparison, and the expected and actual results are located in different locations in the memory, the tests are failing (even though the values are the same). I have seen some have used Assert.Equivalent(), but I could not find documentation for how this should be possible to use. Perhaps a different version of .NET would solve this. 
-A different way of solving this would perhaps be to change the HeroAttributes class to Records, but I have not been able to teach myself this before submitting this assignment. I will try to create a new project where it is done in this way. When I have done that, this README will be updated with a link to the new project. 
+13 of the tests completed in this project resulted in Assert.Equal() fail, but the results (expected and actual) were the same. The reason for this is that Assert.Equal() uses reference comparison, and the expected and actual results are located in different locations in the memory, the tests are failing (even though the values are the same). I have seen some have used Assert.Equivalent(), but I could not find documentation for how this should be possible to use. Perhaps a different version of .NET would solve this. 
+This was solved by changing the HeroAttribute class to a record. After this, all tests passed.  
 
 Test "Hero damage should be calculated correctly with weapon and armor equipped": When filling all armor slots, I had the following Expected: 5.55, Actual: 5.550000000000001. So it passes, but have changed the lines for all armor (using only one armor slot) because of this. So this is a passing test in the console application right now. 
 
