@@ -51,3 +51,49 @@ Existing slots, Weapons and Armor are therefore included here.
 
 ## Description of content in classes in Exceptions file
 The required custom exceptions were made as individual classes in this file. 
+
+## Description of tests
+The following tests have been done on all heroes: 
+* When a hero is created, it needs to have the correct name
+* When a hero is created, it needs to have the correct level
+* When a hero is created, it needs to have the correct attributes
+* When a heroes level is increased, it needs to increment by the correct amount (levelling attributes) and result in the correct attributes
+* A hero should display their state correctly
+
+The following tests were only done on Mage:
+* A hero should be able to equip weapon
+* If a hero equips invalid weapon (weapon type and level requirement), custom exception should be thrown
+* If a hero equips invalid armor (armor type and level requirement), custom exception should be throw
+* Hero damage should be calculated correctly with no weapon equipped
+* Hero damage should be calculated correctly with weapon equipped
+* Hero damage should be calculated correctly with replaced weapon equipped (equip a weapon then equip a new weapon)
+* Hero damage should be calculated correctly with weapon and armor equipped (see "Clarification on "failed" tests below)
+* Total attributes should be calculated correctly with no equipment
+* Total attributes should be calculated correctly with one piece of armor
+* Total attributes should be calculated correctly with two pieces of armor
+* Total attributes should be calculated correctly with a replaced piexe of armor (equip armor, then equip new armor in the same slot)
+
+The following tests were done on items: 
+* When Weapon is created, it needs to have the correct name
+* When Weapon is created, it needs to have the correct required level
+* When Weapon is created, it needs to have the correct slot
+* When Weapon is created, it needs to have the correct weapon type
+* When Weapon is created, it needs to have the correct damage
+* When Armor is created, it needs to have the correct name
+* When Armor is created, it needs to have the correct required level
+* When Armor is created, it needs to have the correct slot
+* When Armor is created, it needs to have the correct armor type
+* When Armor is created, it needs to have the correct armor attributes
+
+
+## Clarification on "failed" tests
+13 of the tests completed in this project result in Assert.Equal() fail, but the results (expected and actual) are the same. The reason for this is that Assert.Equal() uses reference comparison, and the expected and actual results are located in different locations in the memory, the tests are failing (even though the values are the same). I have seen some have used Assert.Equivalent(), but I could not find documentation for how this should be possible to use. Perhaps a different version of .NET would solve this. 
+A different way of solving this would perhaps be to change the HeroAttributes class to Records, but I have not been able to teach myself this before submitting this assignment. I will try to create a new project where it is done in this way. When I have done that, this README will be updated with a link to the new project. 
+
+Test "Hero damage should be calculated correctly with weapon and armor equipped": When filling all armor slots, I had the following Expected: 5.55, Actual: 5.550000000000001. So it passes, but have changed the lines for all armor (using only one armor slot) because of this.
+
+
+
+## Clarification on "missing" commits
+I originally had a different project, but I received the following error in that project: The debug executable ... specified in the ... debug profile does not exist
+I attempted correcting this so the project would work, but I had to create a new project instead - and I copied the code from the old project. So all the commits I had made on the previous project are therefore not included here. 
