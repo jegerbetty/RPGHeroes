@@ -36,6 +36,7 @@ HeroAttributes class shall encapsulate the following attributes:
 * Strength
 * Dexterity
 * Intelligence
+
 I have included the levelling attributes in the HeroAttributes class. Levelling attributes are what the hero's attributes incease with when they level up. 
 
 ## Description of content in classes in Items file
