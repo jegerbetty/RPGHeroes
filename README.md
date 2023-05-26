@@ -97,4 +97,5 @@ Test "Hero damage should be calculated correctly with weapon and armor equipped"
 
 ## Clarification on "missing" commits
 I originally had a different project, but I received the following error in that project: "The debug executable ... specified in the ... debug profile does not exist"
+
 I attempted correcting this so the project would work, but I had to create a new project instead - and I copied the code from the old project. So all the commits I had made on the previous project are therefore not included here. 
