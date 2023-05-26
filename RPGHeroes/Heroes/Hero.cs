@@ -25,7 +25,7 @@ namespace RPG_Heroes.Heroes
         //public HeroAttribute? DamagingAttribute { get; set; }
 
         public Weapon? EquippedWeapon { get; set; }
-        public Dictionary<Slot, Items.Items> EquippedArmor { get; set; }
+        public Dictionary<Slot, Items.Armor> EquippedArmor { get; set; }
         public WeaponType[]? ValidWeaponTypes { get; set; }
         public ArmorType[]? ValidArmorTypes { get; set; }
 
@@ -33,7 +33,7 @@ namespace RPG_Heroes.Heroes
         {
             Name = name;
             Level = 1;
-            EquippedArmor = new Dictionary<Slot, Items.Items>(); 
+            EquippedArmor = new Dictionary<Slot, Items.Armor>(); 
         }
 
         
