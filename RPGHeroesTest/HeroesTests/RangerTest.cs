@@ -14,7 +14,7 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             string expectedName = "Aragorn";
-            var hero = new Ranger(expectedName);
+            Ranger hero = new Ranger(expectedName);
 
             //Act
             string actualName = hero.Name;
@@ -28,7 +28,7 @@ namespace RPGHeroesTest.HeroesTests
         public void Create_CreateNewRanger_ExpectCorrectLevel()
         {
             //Arrange
-            var hero = new Ranger("Aragorn");
+            Ranger hero = new Ranger("Aragorn");
             int expectedLevel = 1;
 
             //Act
@@ -42,7 +42,7 @@ namespace RPGHeroesTest.HeroesTests
         public void Create_CreateNewRanger_ExpectCorrectAttributes()
         {
             //Arrange
-            var hero = new Ranger("Aragorn");
+            Ranger hero = new Ranger("Aragorn");
             HeroAttribute expectedAttributes = new(1, 7, 1, 1, 5, 1);
 
             //Act
@@ -56,7 +56,7 @@ namespace RPGHeroesTest.HeroesTests
         public void LevelUp_WhenLevellingUpRanger_ExpectCorrectIncreasedAttributes()
         {
             //Arrange
-            var hero = new Ranger("Aragorn");
+            Ranger hero = new Ranger("Aragorn");
             HeroAttribute levelOneAttributes = hero.HeroAttribute;
             HeroAttribute expectedLevelTwoAttributes = new(levelOneAttributes.Strength + 1, levelOneAttributes.Dexterity + 5, levelOneAttributes.Intelligence + 1, levelOneAttributes.LevelUpStrength, levelOneAttributes.LevelUpDexterity, levelOneAttributes.LevelUpIntelligence);
 
@@ -72,7 +72,7 @@ namespace RPGHeroesTest.HeroesTests
         public void Display_DisplayHero_ExpectDisplayedState()
         {
             //Arrange
-            var hero = new Ranger("Aragorn");
+            Ranger hero = new Ranger("Aragorn");
             string expectedDisplayedState =
             $"Character name: {hero.Name}\n" +
             $"Character class: {hero.ClassName}\n" +

@@ -14,7 +14,7 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             string expectedName = "Harald";
-            var hero = new Warrior(expectedName);
+            Warrior hero = new Warrior(expectedName);
 
             //Act
             string actualName = hero.Name;
@@ -28,7 +28,7 @@ namespace RPGHeroesTest.HeroesTests
         public void Create_CreateNewWarrior_ExpectCorrectLevel()
         {
             //Arrange
-            var hero = new Warrior("Harald");
+            Warrior hero = new Warrior("Harald");
             int expectedLevel = 1;
 
             //Act
@@ -42,7 +42,7 @@ namespace RPGHeroesTest.HeroesTests
         public void Create_CreateNewWarrior_ExpectCorrectAttributes()
         {
             //Arrange
-            var hero = new Warrior("Harald");
+            Warrior hero = new Warrior("Harald");
             HeroAttribute expectedAttributes = new(5,2,1,3,2,1);
 
             //Act
@@ -56,7 +56,7 @@ namespace RPGHeroesTest.HeroesTests
         public void LevelUp_WhenLevellingUpWarrior_ExpectCorrectIncreasedAttributes()
         {
             //Arrange
-            var hero = new Warrior("Harald");
+            Warrior hero = new Warrior("Harald");
             HeroAttribute levelOneAttributes = hero.HeroAttribute;
             HeroAttribute expectedLevelTwoAttributes = new(levelOneAttributes.Strength + 3, levelOneAttributes.Dexterity + 2, levelOneAttributes.Intelligence + 1, levelOneAttributes.LevelUpStrength, levelOneAttributes.LevelUpDexterity, levelOneAttributes.LevelUpIntelligence);
 
@@ -72,7 +72,7 @@ namespace RPGHeroesTest.HeroesTests
         public void Display_DisplayHero_ExpectDisplayedState()
         {
             //Arrange
-            var hero = new Warrior("Harald");
+            Warrior hero = new Warrior("Harald");
             string expectedDisplayedState =
             $"Character name: {hero.Name}\n" +
             $"Character class: {hero.ClassName}\n" +

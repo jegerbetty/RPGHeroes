@@ -1,4 +1,5 @@
 ﻿using RPG_Heroes.Heroes;
+using RPG_Heroes.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace RPGHeroesTest.ItemsTest
         {
             //Arrange
             string expectedName = "Trusty Protection";
-            var armor = new RPG_Heroes.Items.Armor(RPG_Heroes.Enum.Enums.ArmorType.Leather, expectedName, new RPG_Heroes.Heroes.HeroAttribute(1, 1, 8, 1, 1, 5), RPG_Heroes.Enum.Enums.Slot.Body, 1);
+            var armor = new RPG_Heroes.Items.Armor(Enums.ArmorType.Leather, expectedName, new HeroAttribute(1, 1, 8, 1, 1, 5), Enums.Slot.Body, 1);
 
             //Act
             string actualName = armor.Name;
@@ -27,7 +28,7 @@ namespace RPGHeroesTest.ItemsTest
         public void Create_CreateNewArmor_ExpectCorrectRequiredLevel()
         {
             //Arrange
-            var armor = new RPG_Heroes.Items.Armor(RPG_Heroes.Enum.Enums.ArmorType.Leather, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 8, 1, 1, 5), RPG_Heroes.Enum.Enums.Slot.Body, 1);
+            var armor = new RPG_Heroes.Items.Armor(Enums.ArmorType.Leather, "Trusty Protection", new HeroAttribute(1, 1, 8, 1, 1, 5), Enums.Slot.Body, 1);
             int expectedRequiredLevel = 1;
 
             //Act
@@ -41,11 +42,11 @@ namespace RPGHeroesTest.ItemsTest
         public void Create_CreateNewArmor_ExpectCorrectSlot()
         {
             //Arrange
-            var armor = new RPG_Heroes.Items.Armor(RPG_Heroes.Enum.Enums.ArmorType.Leather, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 8, 1, 1, 5), RPG_Heroes.Enum.Enums.Slot.Body, 1);
-            RPG_Heroes.Enum.Enums.Slot expectedSlot = RPG_Heroes.Enum.Enums.Slot.Body;
+            var armor = new RPG_Heroes.Items.Armor(Enums.ArmorType.Leather, "Trusty Protection", new HeroAttribute(1, 1, 8, 1, 1, 5), Enums.Slot.Body, 1);
+            Enums.Slot expectedSlot = Enums.Slot.Body;
 
             //Act
-            RPG_Heroes.Enum.Enums.Slot actualSlot = armor.Slot;
+            Enums.Slot actualSlot = armor.Slot;
 
             Assert.Equal(expectedSlot, actualSlot);
         }
@@ -54,11 +55,11 @@ namespace RPGHeroesTest.ItemsTest
         public void Create_CreateNewArmor_ExpectCorrectArmorType()
         {
             //Arrange
-            var armor = new RPG_Heroes.Items.Armor(RPG_Heroes.Enum.Enums.ArmorType.Leather, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 8, 1, 1, 5), RPG_Heroes.Enum.Enums.Slot.Body, 1);
-            RPG_Heroes.Enum.Enums.ArmorType expectedArmorType = RPG_Heroes.Enum.Enums.ArmorType.Leather;
+            var armor = new RPG_Heroes.Items.Armor(Enums.ArmorType.Leather, "Trusty Protection", new HeroAttribute(1, 1, 8, 1, 1, 5), Enums.Slot.Body, 1);
+            Enums.ArmorType expectedArmorType = Enums.ArmorType.Leather;
 
             //Act
-            RPG_Heroes.Enum.Enums.ArmorType actualArmorType = armor.ArmorType;
+            Enums.ArmorType actualArmorType = armor.ArmorType;
 
             //Assert
             Assert.Equal(expectedArmorType, actualArmorType);
@@ -68,8 +69,8 @@ namespace RPGHeroesTest.ItemsTest
         public void Create_CreateNewArmor_ExpectCorrectArmorAttributes()
         {
             //Arrange
-            var armor = new RPG_Heroes.Items.Armor(RPG_Heroes.Enum.Enums.ArmorType.Leather, "Trusty Protection", new RPG_Heroes.Heroes.HeroAttribute(1, 1, 8, 1, 1, 5), RPG_Heroes.Enum.Enums.Slot.Body, 1);
-            HeroAttribute expectedArmorAttribute = new(1, 1, 8, 1, 1, 5);
+            var armor = new RPG_Heroes.Items.Armor(Enums.ArmorType.Leather, "Trusty Protection", new HeroAttribute(1, 1, 8, 1, 1, 5), Enums.Slot.Body, 1);
+            HeroAttribute expectedArmorAttribute = new HeroAttribute(1, 1, 8, 1, 1, 5);
 
             //Act
             HeroAttribute actualArmorAttribute = armor.ArmorAttribute;

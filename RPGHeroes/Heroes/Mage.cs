@@ -36,7 +36,7 @@ namespace RPG_Heroes.Heroes
             int totalLevelUpIntelligence = HeroAttribute.LevelUpIntelligence;
 
             
-            foreach (var item in EquippedArmor.Values)
+            foreach (Armor item in EquippedArmor.Values)
             {
                 if (item is Armor armor) 
                 { 

@@ -1,4 +1,5 @@
 ﻿using RPG_Heroes.Items;
+using RPG_Heroes.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace RPGHeroesTest.ItemsTest
         {
             //Arrange
             string expectedName = "Excalibur";
-            var weapon = new Weapon(expectedName, 1, RPG_Heroes.Enum.Enums.WeaponType.Dagger, 5);
+            Weapon weapon = new Weapon(expectedName, 1, Enums.WeaponType.Dagger, 5);
 
             //Act
             string actualName = weapon.Name;
@@ -27,7 +28,7 @@ namespace RPGHeroesTest.ItemsTest
         public void Create_CreateNewWeapon_ExpectCorrectRequiredLevel()
         {
             //Arrange
-            var weapon = new Weapon("Excalibur", 1, RPG_Heroes.Enum.Enums.WeaponType.Dagger, 5);
+            Weapon weapon = new Weapon("Excalibur", 1, Enums.WeaponType.Dagger, 5);
             int expectedRequiredLevel = 1;
 
             //Act
@@ -42,11 +43,11 @@ namespace RPGHeroesTest.ItemsTest
         public void Create_CreateNewWeapon_ExpectCorrectSlot()
         {
             //Arrange
-            var weapon = new Weapon("Excalibur", 1, RPG_Heroes.Enum.Enums.WeaponType.Dagger, 5);
-            RPG_Heroes.Enum.Enums.Slot expectedSlot = RPG_Heroes.Enum.Enums.Slot.Weapon;
+            Weapon weapon = new Weapon("Excalibur", 1, Enums.WeaponType.Dagger, 5);
+            Enums.Slot expectedSlot = Enums.Slot.Weapon;
 
             //Act
-            RPG_Heroes.Enum.Enums.Slot actualSlot = weapon.Slot;
+            Enums.Slot actualSlot = weapon.Slot;
 
             //Assert
             Assert.Equal(expectedSlot, actualSlot);
@@ -56,11 +57,11 @@ namespace RPGHeroesTest.ItemsTest
         public void Create_CreateNewWeapon_ExpectCorrectWeaponType()
         {
             //Arrange
-            var weapon = new Weapon("Excalibur", 1, RPG_Heroes.Enum.Enums.WeaponType.Dagger, 5);
-            RPG_Heroes.Enum.Enums.WeaponType expectedWeaponType = RPG_Heroes.Enum.Enums.WeaponType.Dagger;
+            Weapon weapon = new Weapon("Excalibur", 1, Enums.WeaponType.Dagger, 5);
+            Enums.WeaponType expectedWeaponType = Enums.WeaponType.Dagger;
 
             //Act
-            RPG_Heroes.Enum.Enums.WeaponType actualWeaponType = weapon.WeaponType;
+            Enums.WeaponType actualWeaponType = weapon.WeaponType;
 
             //Assert
             Assert.Equal(expectedWeaponType, actualWeaponType);
@@ -70,7 +71,7 @@ namespace RPGHeroesTest.ItemsTest
         public void Create_CreateNewWeapon_ExpectCorrectDamage()
         {
             //Arrange
-            var weapon = new Weapon("Excalibur", 1, RPG_Heroes.Enum.Enums.WeaponType.Dagger, 5);
+            Weapon weapon = new Weapon("Excalibur", 1, Enums.WeaponType.Dagger, 5);
             int expectedWeaponDamage = 5;
 
             //Act

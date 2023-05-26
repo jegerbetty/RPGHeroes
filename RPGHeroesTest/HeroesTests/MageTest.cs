@@ -20,7 +20,7 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             string expectedName = "Alfred";
-            var hero = new Mage(expectedName);
+            Mage hero = new Mage(expectedName);
 
             //Act
             string actualName = hero.Name;
@@ -34,7 +34,7 @@ namespace RPGHeroesTest.HeroesTests
         public void Create_CreateNewMage_ExpectCorrectLevel()
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             int expectedLevel = 1;
 
             //Act
@@ -48,8 +48,8 @@ namespace RPGHeroesTest.HeroesTests
         public void Create_CreateNewMage_ExpectCorrectAttributes()
         {
             //Arrange
-            var hero = new Mage("Alfred");
-            HeroAttribute expectedAttributes = new(1, 1, 8, 1, 1, 5);
+            Mage hero = new Mage("Alfred");
+            HeroAttribute expectedAttributes = new HeroAttribute(1, 1, 8, 1, 1, 5);
 
             //Act
             HeroAttribute actualAttributes = hero.HeroAttribute;
@@ -62,9 +62,9 @@ namespace RPGHeroesTest.HeroesTests
         public void LevelUp_WhenLevellingUpMage_ExpectCorrectIncreasedAttributes()
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             HeroAttribute levelOneAttributes = hero.HeroAttribute;
-            HeroAttribute expectedLevelTwoAttributes = new(levelOneAttributes.Strength +1, levelOneAttributes.Dexterity +1, levelOneAttributes.Intelligence +5, levelOneAttributes.LevelUpStrength, levelOneAttributes.LevelUpDexterity, levelOneAttributes.LevelUpIntelligence);
+            HeroAttribute expectedLevelTwoAttributes = new HeroAttribute(levelOneAttributes.Strength +1, levelOneAttributes.Dexterity +1, levelOneAttributes.Intelligence +5, levelOneAttributes.LevelUpStrength, levelOneAttributes.LevelUpDexterity, levelOneAttributes.LevelUpIntelligence);
 
             //Act
             hero.LevelUp();
@@ -78,7 +78,7 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipWeapon_ExpectCorrectLevelRequirement()
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             Weapon weapon = new Weapon("Magic Stick", 1, Enums.WeaponType.Wand, 5);
             int expectedRequiredLevel = 1;
 
@@ -94,7 +94,7 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipWeapon_ExpectCorrectWeaponType() 
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             Weapon weapon = new Weapon("Magic Stick", 1, Enums.WeaponType.Wand, 5);
             Enums.WeaponType expectedEquipableWeaponType = Enums.WeaponType.Wand;
 
@@ -110,7 +110,7 @@ namespace RPGHeroesTest.HeroesTests
          public void EquipArmor_ExpectCorrectArmorType()
           {
              //Arrange
-             var hero = new Mage("Alfred");
+             Mage hero = new Mage("Alfred");
              Armor armor = new Armor(Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Body, 1);
              Enums.ArmorType expectedEquipableArmorType = Enums.ArmorType.Cloth;
 
@@ -126,7 +126,7 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipWeapon_EquipTooHighLevelWeapon_ThrowsInvalidWeaponException()
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             Weapon testStaff = new Weapon("Hitting stick", 1, Enums.WeaponType.Staff, 5);
             testStaff.RequiredLevel = 4;
             // Act and Assert
@@ -137,7 +137,7 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipWeapon_EquipInvalidWeapon_ThrowsInvalidWeaponException()
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             Weapon testSword = new Weapon("Excalibur", 1, Enums.WeaponType.Sword, 5);
 
             // Act and Assert
@@ -148,8 +148,8 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipArmor_NoArmor_ExpectCorrectTotalAttributes()
         {
             //Arrange
-            var hero = new Mage("Alfred");
-            HeroAttribute expectedTotalAttributes = new(1, 1, 8, 1, 1, 5);
+            Mage hero = new Mage("Alfred");
+            HeroAttribute expectedTotalAttributes = new HeroAttribute(1, 1, 8, 1, 1, 5);
 
             //Act
             HeroAttribute actualTotalAttributes = hero.TotalAttributes();
@@ -162,9 +162,9 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipArmor_OnePieceOfArmor_ExpectCorrectTotalAttributes()
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             Armor armor = new Armor(Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Body, 1);
-            HeroAttribute expectedTotalAttributes = new(2, 2, 9, 1, 1, 5);
+            HeroAttribute expectedTotalAttributes = new HeroAttribute(2, 2, 9, 1, 1, 5);
 
             //Act
             hero.EquipArmor(armor);
@@ -178,10 +178,10 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipArmor_TwoPiecesOfArmor_ExpectCorrectTotalAttributes()
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             Armor armor = new Armor(Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Body, 1);
             Armor armorHead = new Armor(Enums.ArmorType.Cloth, "Trusty Helmet", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Head, 1);
-            HeroAttribute expectedTotalAttributes = new(3, 3, 10, 1, 1, 5);
+            HeroAttribute expectedTotalAttributes = new HeroAttribute(3, 3, 10, 1, 1, 5);
 
             //Act
             hero.EquipArmor(armor);
@@ -196,10 +196,10 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipArmor_ReplacedPieceOfArmor_ExpectCorrectTotalAttributes()
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             Armor armor = new Armor(Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Body, 1);
             Armor armorHead = new Armor(Enums.ArmorType.Cloth, "Trusty Helmet", new HeroAttribute(4, 4, 4, 0, 0, 0), Enums.Slot.Body, 1);
-            HeroAttribute expectedTotalAttributes = new(5, 5, 12, 1, 1, 5);
+            HeroAttribute expectedTotalAttributes = new HeroAttribute(5, 5, 12, 1, 1, 5);
 
             //Act
             hero.EquipArmor(armor);
@@ -214,7 +214,7 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipWeapon_NoWeaponEquipped_ExpectCorrectCalculatedDamage() 
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             double expectedWeaponDamage = 1.08;
 
             //Act
@@ -229,7 +229,7 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipWeapon_WeaponEquipped_ExpectCorrectCalculatedDamage()
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             Weapon weapon = new Weapon("Magic stick", 1, Enums.WeaponType.Wand, 5);
             double expectedWeaponDamage = 5.4;
 
@@ -246,7 +246,7 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipWeapon_ReplaceEquippedWeapon_ExpectCorrectCalculatedDamage()
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             Weapon weapon = new Weapon("Magic stick", 1, Enums.WeaponType.Wand, 5);
             Weapon weaponStaff = new Weapon("Hitting stick", 1, Enums.WeaponType.Staff, 6);
             double expectedWeaponDamage = 6.48;
@@ -265,7 +265,7 @@ namespace RPGHeroesTest.HeroesTests
         public void EquipWeaponAndArmor_FullyEquipped_ExpectCorrectCalculatedDamage() 
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             Weapon weapon = new Weapon("Magic stick", 1, Enums.WeaponType.Wand, 5);
             Armor armor = new Armor(Enums.ArmorType.Cloth, "Trusty Protection", new HeroAttribute(1, 1, 1, 0, 0, 0), Enums.Slot.Body, 1);
             //Armor armorHead = new Armor(RPG_Heroes.Enum.Enums.ArmorType.Cloth, "Trusty Helmet", new HeroAttribute(1, 1, 1, 0, 0, 0), RPG_Heroes.Enum.Enums.Slot.Head, 1);
@@ -287,7 +287,7 @@ namespace RPGHeroesTest.HeroesTests
         public void Display_DisplayHero_ExpectDisplayedState() 
         {
             //Arrange
-            var hero = new Mage("Alfred");
+            Mage hero = new Mage("Alfred");
             string expectedDisplayedState = 
             $"Character name: {hero.Name}\n" +
             $"Character class: {hero.ClassName}\n" +

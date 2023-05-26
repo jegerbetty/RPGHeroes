@@ -14,7 +14,7 @@ namespace RPGHeroesTest.HeroesTests
         {
             //Arrange
             string expectedName = "Balrog";
-            var hero = new Rogue(expectedName);
+            Rogue hero = new Rogue(expectedName);
 
             //Act
             string actualName = hero.Name;
@@ -28,7 +28,7 @@ namespace RPGHeroesTest.HeroesTests
         public void Create_CreateNewRogue_ExpectCorrectLevel()
         {
             //Arrange
-            var hero = new Rogue("Balrog");
+            Rogue hero = new Rogue("Balrog");
             int expectedLevel = 1;
 
             //Act
@@ -42,7 +42,7 @@ namespace RPGHeroesTest.HeroesTests
         public void Create_CreateNewRogue_ExpectCorrectAttributes()
         {
             //Arrange
-            var hero = new Rogue("Balrog");
+            Rogue hero = new Rogue("Balrog");
             HeroAttribute expectedAttributes = new(2, 6, 1, 1, 4, 1);
 
             //Act
@@ -56,7 +56,7 @@ namespace RPGHeroesTest.HeroesTests
         public void LevelUp_WhenLevellingUpRogue_ExpectCorrectIncreasedAttributes()
         {
             //Arrange
-            var hero = new Rogue("Balrog");
+            Rogue hero = new Rogue("Balrog");
             HeroAttribute levelOneAttributes = hero.HeroAttribute;
             HeroAttribute expectedLevelTwoAttributes = new(levelOneAttributes.Strength + 1, levelOneAttributes.Dexterity + 4, levelOneAttributes.Intelligence + 1, levelOneAttributes.LevelUpStrength, levelOneAttributes.LevelUpDexterity, levelOneAttributes.LevelUpIntelligence);
 
@@ -72,7 +72,7 @@ namespace RPGHeroesTest.HeroesTests
         public void Display_DisplayHero_ExpectDisplayedState()
         {
             //Arrange
-            var hero = new Rogue("Balrog");
+            Rogue hero = new Rogue("Balrog");
             string expectedDisplayedState =
             $"Character name: {hero.Name}\n" +
             $"Character class: {hero.ClassName}\n" +
